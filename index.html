@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart City Traffic Light Monitoring System</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #0d1b2a;
+    color: #e0e0e0;
+    padding: 30px 20px;
+    min-height: 100vh;
+  }
+  h1 {
+    text-align: center;
+    font-size: 1.3rem;
+    color: #00d4ff;
+    margin-bottom: 6px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .subtitle {
+    text-align: center;
+    font-size: 0.75rem;
+    color: #7a9bb5;
+    margin-bottom: 30px;
+  }
+  .flowchart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  .layer {
+    width: 100%;
+    max-width: 780px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .layer-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #7a9bb5;
+    margin-bottom: 8px;
+  }
+  .row {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .box {
+    border-radius: 10px;
+    padding: 12px 14px;
+    text-align: center;
+    min-width: 130px;
+    max-width: 170px;
+    flex: 1;
+    border: 1.5px solid;
+  }
+  .box .icon { font-size: 1.5rem; display: block; margin-bottom: 5px; }
+  .box .title { font-size: 0.78rem; font-weight: 700; margin-bottom: 4px; }
+  .box .desc { font-size: 0.65rem; color: #a0b8cc; line-height: 1.4; }
+  .layer-1 .box { background: #0f2a1e; border-color: #00c853; }
+  .layer-1 .box .title { color: #00e676; }
+  .layer-2 .box { background: #1a1a2e; border-color: #2979ff; }
+  .layer-2 .box .title { color: #448aff; }
+  .layer-3 .box { background: #1e1a2e; border-color: #aa00ff; }
+  .layer-3 .box .title { color: #ce93d8; }
+  .layer-4 .box { background: #2a1a0e; border-color: #ff6d00; }
+  .layer-4 .box .title { color: #ffab40; }
+  .layer-5 .box { background: #1a2a2a; border-color: #00bcd4; }
+  .layer-5 .box .title { color: #00e5ff; }
+  .arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 4px 0;
+  }
+  .arrow-line {
+    width: 2px;
+    height: 28px;
+    background: linear-gradient(to bottom, #00d4ff, #7a9bb5);
+  }
+  .arrow-head {
+    width: 0; height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 10px solid #00d4ff;
+  }
+  .arrow-label {
+    font-size: 0.6rem;
+    color: #7a9bb5;
+    margin-top: 2px;
+    letter-spacing: 0.5px;
+  }
+  .diamond-wrap {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 780px;
+  }
+  .diamond {
+    width: 160px;
+    height: 60px;
+    background: #2a1a00;
+    border: 2px solid #ffd600;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #ffd600;
+    padding: 8px;
+  }
+  .branch-row {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+    max-width: 780px;
+    margin-top: 8px;
+  }
+  .branch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    max-width: 240px;
+  }
+  .branch-label {
+    font-size: 0.62rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    padding: 2px 10px;
+    border-radius: 20px;
+  }
+  .yes { color: #00e676; border: 1px solid #00e676; }
+  .no  { color: #ff5252; border: 1px solid #ff5252; }
+  .footer {
+    text-align: center;
+    margin-top: 28px;
+    font-size: 0.65rem;
+    color: #4a6a80;
+  }
+</style>
+</head>
+<body>
+
+<h1>Smart City Traffic Light Monitoring System</h1>
+<p class="subtitle">Conceptual Framework &amp; Monitoring Flowchart</p>
+
+<div class="flowchart">
+
+  <div class="layer layer-1">
+    <div class="layer-label">Physical Layer — Field Devices</div>
+    <div class="row">
+      <div class="box"><span class="icon">🚦</span><div class="title">Traffic Lights</div><div class="desc">LED/bulb status, power supply health</div></div>
+      <div class="box"><span class="icon">📡</span><div class="title">IoT Sensors</div><div class="desc">Traffic flow, pedestrian detection, fault signals</div></div>
+      <div class="box"><span class="icon">📷</span><div class="title">Cameras</div><div class="desc">Real-time visual feed per intersection</div></div>
+      <div class="box"><span class="icon">🔌</span><div class="title">Controllers</div><div class="desc">Self-diagnostic routines &amp; local logic</div></div>
+    </div>
+  </div>
+
+  <div class="arrow"><div class="arrow-line"></div><div class="arrow-head"></div><div class="arrow-label">SNMP Polling + Event Traps</div></div>
+
+  <div class="layer layer-2">
+    <div class="layer-label">Edge Computing Layer</div>
+    <div class="row">
+      <div class="box"><span class="icon">🖥️</span><div class="title">Edge Node</div><div class="desc">Local data processing &amp; low-latency decisions</div></div>
+      <div class="box"><span class="icon">🔗</span><div class="title">IoT Gateway</div><div class="desc">SNMP/MQTT bridge, redundant comm paths</div></div>
+      <div class="box"><span class="icon">⚡</span><div class="title">Adaptive Control</div><div class="desc">Signal timing adjusted to live traffic data</div></div>
+    </div>
+  </div>
+
+  <div class="arrow"><div class="arrow-line"></div><div class="arrow-head"></div><div class="arrow-label">Encrypted Data Stream</div></div>
+
+  <div class="layer layer-3">
+    <div class="layer-label">Cloud / Central Monitoring Layer</div>
+    <div class="row">
+      <div class="box"><span class="icon">☁️</span><div class="title">Central Dashboard</div><div class="desc">City-wide real-time visibility &amp; control</div></div>
+      <div class="box"><span class="icon">📊</span><div class="title">Analytics Engine</div><div class="desc">Historical trends &amp; predictive maintenance</div></div>
+      <div class="box"><span class="icon">🤖</span><div class="title">AI / ML Module</div><div class="desc">Anomaly detection &amp; fault prediction</div></div>
+    </div>
+  </div>
+
+  <div class="arrow"><div class="arrow-line"></div><div class="arrow-head"></div><div class="arrow-label">Fault / Anomaly Detected?</div></div>
+
+  <div class="diamond-wrap">
+    <div class="diamond">⚠️ Is a Fault<br>Detected?</div>
+  </div>
+
+  <div class="branch-row">
+    <div class="branch">
+      <span class="branch-label yes">✔ YES — Fault Found</span>
+      <div class="arrow"><div class="arrow-line"></div><div class="arrow-head"></div></div>
+      <div class="layer layer-4">
+        <div class="row">
+          <div class="box" style="max-width:220px;"><span class="icon">🔔</span><div class="title">Alert &amp; Response</div><div class="desc">Notify maintenance team · Reroute traffic · Activate backup signal logic · Log incident</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="branch">
+      <span class="branch-label no">✘ NO — System Normal</span>
+      <div class="arrow"><div class="arrow-line"></div><div class="arrow-head"></div></div>
+      <div class="layer layer-5">
+        <div class="row">
+          <div class="box" style="max-width:220px;"><span class="icon">🔄</span><div class="title">Continue Monitoring</div><div class="desc">Log metrics · Update analytics · Schedule predictive maintenance · Loop back</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow" style="margin-top:12px;"><div class="arrow-line"></div><div class="arrow-head"></div><div class="arrow-label">Feedback Loop</div></div>
+
+  <div class="layer layer-5" style="margin-top:4px;">
+    <div class="layer-label">Outcome — Reliable &amp; Resilient Traffic System</div>
+    <div class="row">
+      <div class="box"><span class="icon">✅</span><div class="title">High Availability</div><div class="desc">Redundant paths — no single point of failure</div></div>
+      <div class="box"><span class="icon">⚡</span><div class="title">Rapid Detection</div><div class="desc">SNMP traps + AI enable near-instant fault alerts</div></div>
+      <div class="box"><span class="icon">🚗</span><div class="title">Smooth Traffic Flow</div><div class="desc">Adaptive AI maintains flow even during failures</div></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">Smart City By Kipkorir Job · IoT + SNMP + Edge + Cloud Architecture</div>
+</body>
+</html>
